@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu · 简明访问指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f6f8fc;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        /* ---------- hero 深色头图 ---------- */
+        .hero {
+            background: linear-gradient(145deg, #0c1a2b 0%, #1a2f44 100%);
+            color: #e8edf5;
+            padding: 4.5rem 1.5rem 3.8rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -40%;
+            right: -20%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle at 30% 40%, rgba(78, 159, 207, 0.08), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 span {
+            color: #7bc0e8;
+        }
+
+        .hero p {
+            max-width: 640px;
+            margin: 0 auto 1.2rem;
+            font-size: 1.15rem;
+            color: #cbd9e9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero a.hero-link {
+            display: inline-block;
+            margin-top: 0.4rem;
+            padding: 0.55rem 1.8rem;
+            background: transparent;
+            border: 1.5px solid #7bc0e8;
+            border-radius: 40px;
+            color: #e0eefd;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: 0.25s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero a.hero-link:hover {
+            background: #7bc0e8;
+            color: #0c1a2b;
+            border-color: #7bc0e8;
+        }
+
+        /* ---------- 内容容器 ---------- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
+
+        /* ---------- 优势区 三卡片 ---------- */
+        .advantages {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 2rem 1.8rem;
+            margin-bottom: 3.2rem;
+        }
+
+        .advantage-card {
+            background: white;
+            border-radius: 20px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 20, 40, 0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #eef2f7;
+        }
+
+        .advantage-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(0, 40, 70, 0.06);
+        }
+
+        .advantage-card .icon {
+            font-size: 2rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .advantage-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #0f2638;
+        }
+
+        .advantage-card p {
+            font-size: 0.95rem;
+            color: #31475e;
+        }
+
+        /* ---------- 说明区 ---------- */
+        .explain-section {
+            background: white;
+            border-radius: 24px;
+            padding: 2.2rem 2rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 4px 16px rgba(0, 20, 40, 0.02);
+            border: 1px solid #eef2f7;
+        }
+
+        .explain-section h2 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            color: #112433;
+            border-left: 6px solid #4e9fcf;
+            padding-left: 1rem;
+        }
+
+        .explain-section p {
+            margin-bottom: 1.2rem;
+            color: #2b3f53;
+        }
+
+        .explain-section ul {
+            list-style: none;
+            padding-left: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.1rem 2rem;
+            margin-top: 0.6rem;
+        }
+
+        .explain-section ul li {
+            position: relative;
+            padding-left: 1.6rem;
+            font-size: 0.98rem;
+            color: #1f354a;
+        }
+
+        .explain-section ul li::before {
+            content: "›";
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #4e9fcf;
+            line-height: 1.4;
+        }
+
+        .highlight-link {
+            color: #1a6b8f;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #8fc6e3;
+            transition: 0.2s;
+        }
+
+        .highlight-link:hover {
+            color: #0d4561;
+            border-bottom-color: #1a6b8f;
+        }
+
+        /* ---------- FAQ摘要 ---------- */
+        .faq-digest {
+            background: transparent;
+            margin-bottom: 2.8rem;
+        }
+
+        .faq-digest h2 {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #112433;
+            margin-bottom: 1.4rem;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: 20px;
+            padding: 1.3rem 1.8rem;
+            margin-bottom: 0.9rem;
+            border: 1px solid #e6ecf3;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #143244;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .faq-item p {
+            color: #31506b;
+            font-size: 0.95rem;
+        }
+
+        .faq-item a {
+            color: #1a6b8f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #9ac7e5;
+        }
+
+        .faq-item a:hover {
+            color: #09415a;
+        }
+
+        /* ---------- 底部链接 ---------- */
+        .bottom-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem 2.5rem;
+            padding: 2rem 0 0.8rem;
+            border-top: 1px solid #dbe2ec;
+            margin-top: 1rem;
+        }
+
+        .bottom-links a {
+            color: #2d5370;
+            text-decoration: none;
+            font-weight: 450;
+            font-size: 0.95rem;
+            padding: 0.2rem 0;
+            border-bottom: 1px solid transparent;
+            transition: 0.2s;
+        }
+
+        .bottom-links a:hover {
+            border-bottom-color: #4e9fcf;
+            color: #0b3d57;
+        }
+
+        .bottom-links .leyu-em {
+            font-weight: 600;
+            color: #163f55;
+        }
+
+        .footnote {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #687a8c;
+            padding: 2rem 0 0.2rem;
+            border-top: none;
+        }
+
+        /* ---------- 响应 ---------- */
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 1.5rem 1rem 2.5rem;
+            }
+            .explain-section {
+                padding: 1.5rem 1.2rem;
+            }
+            .faq-item {
+                padding: 1.1rem 1.2rem;
+            }
+            .advantages {
+                gap: 1.2rem;
+            }
+            .bottom-links {
+                gap: 1.2rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero {
+                padding: 3rem 1rem 2.5rem;
+            }
+            .hero a.hero-link {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ====== HERO 深色头图 ====== -->
+<header class="hero">
+    <h1>轻松上路 · <span>leyu</span></h1>
+    <p>一份简明指南，帮你更快熟悉平台节奏、避开常见弯路。从账号准备到日常使用，把琐碎说明留在开始之前。</p>
+    <a href="https://index-portal-leyu.com" class="hero-link">leyu</a>
+</header>
+
+<!-- ====== 主体内容 ====== -->
+<div class="container">
+
+    <!-- 优势区：三卡片 -->
+    <section class="advantages">
+        <div class="advantage-card">
+            <div class="icon">📋</div>
+            <h3>直达重点</h3>
+            <p>不堆砌术语，只挑你最需要知道的环节。每一步都对应真实场景，减少翻手册的耐心消耗。</p>
+        </div>
+        <div class="advantage-card">
+            <div class="icon">🔐</div>
+            <h3>访问提醒</h3>
+            <p>保持浏览器更新，留意网络环境。建议把 <a href="https://index-portal-leyu.com" class="highlight-link" style="border-bottom-style: solid;">leyu</a> 加入书签，下次更快找到。</p>
+        </div>
+        <div class="advantage-card">
+            <div class="icon">🧭</div>
+            <h3>场景友好</h3>
+            <p>无论你用电脑还是手机，界面和操作都做了适配。常用功能在一两次点击内就能触及。</p>
+        </div>
+    </section>
+
+    <!-- 说明区：从简明指南切入 -->
+    <section class="explain-section">
+        <h2>开始之前，这些事可以先了解</h2>
+        <p>很多朋友刚开始会纠结「要不要先设置什么」「是不是漏了什么步骤」。其实只要花三分钟过一遍基础流程，后面会顺很多。这里整理了几个日常最常遇到的情况：</p>
+        <ul>
+            <li>首次使用时，确认邮箱或账号已激活，推荐使用常用邮箱</li>
+            <li>如果遇到页面加载慢，可以先刷新或检查本地网络，大部分情况能恢复</li>
+            <li>个人资料里可以调整通知偏好，按自己的节奏接收消息</li>
+            <li>如果你只是想先随便看看，直接打开 <a href="https://index-portal-leyu.com" class="highlight-link">leyu</a> 首页就能浏览公开内容</li>
+        </ul>
+        <p style="margin-top: 0.8rem;">不用急着把所有功能都记下来，边用边熟悉反而更自然。遇到不明白的，多数时候在页面底部或帮助区域能找到说明。</p>
+    </section>
+
+    <!-- FAQ摘要 -->
+    <section class="faq-digest">
+        <h2>几个常见疑问 · 简短回答</h2>
+
+        <div class="faq-item">
+            <strong>🔹 每次都要登录吗？</strong>
+            <p>如果使用个人设备，可以选择保持登录状态（注意不要用公共电脑勾选）。跨设备使用时重新登录一下更安全。</p>
+        </div>
+        <div class="faq-item">
+            <strong>🔹 页面风格可以调吗？</strong>
+            <p>目前提供浅色/深色两种主题，在个人设置里找到「显示」选项就能切换。选一个自己看着舒服的。</p>
+        </div>
+        <div class="faq-item">
+            <strong>🔹 想收藏某个页面？</strong>
+            <p>用浏览器自带的收藏夹，或者把 <a href="https://index-portal-leyu.com">leyu</a> 主站存到书签栏。这样下次不用输入网址，一键就到。</p>
+        </div>
+        <div class="faq-item">
+            <strong>🔹 手机上看会不一样吗？</strong>
+            <p>布局会根据屏幕自动调整，按钮和文字都放大了些，手指操作没问题。横屏竖屏都支持。</p>
+        </div>
+    </section>
+
+    <!-- 底部链接 -->
+    <footer class="bottom-links">
+        <a href="https://index-portal-leyu.com" class="leyu-em">leyu</a>
+        <a href="#">使用指南</a>
+        <a href="#">常见问题</a>
+        <a href="#">隐私说明</a>
+        <a href="#">状态页</a>
+    </footer>
+    <div class="footnote">
+        一份生活化的访问备忘 · 保持简单，保持连接
+    </div>
+
+</div>
+
+</body>
+</html>

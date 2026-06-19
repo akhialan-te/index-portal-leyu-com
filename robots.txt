@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://akhialan-te.github.io/index-portal-leyu-com/sitemap.xml
